@@ -1,8 +1,10 @@
+#include <config.h>
+
 //Component pins
-#define PEATONES 12
-#define COCHES 13
-#define BOTON 11
-#define ESPERA 10
+#define PEATONES 14
+#define COCHES 26
+#define BOTON 12
+#define ESPERA 27
 
 // states
 #define Gr 0
@@ -33,21 +35,23 @@ void setup() {
   digitalWrite(PEATONES, LOW);
   digitalWrite(COCHES, LOW);
   digitalWrite(ESPERA, LOW);
+
+  Serial.begin(9600);
+  Serial.println("Hola");
 }
 
 void loop() {
   now = millis();
   //Check button
-  if ((state==Gr || state==Rr2) && digitalRead(BOTON)){
+  if ((state==Gr || state==Rr2) && digitalRead(BOTON)==LOW){
     waiting=true;
     digitalWrite(ESPERA, HIGH);
   }
 
   if (state==Gr && waiting && checkTime(now, lastStateStart, cooldownTime)){
     state++;
+    waiting = false;
     lastStateStart=now;
-    lightCar('Y');
-    lightPasserby('R');
   }
 
   if (state>=Yr && (checkTime(now, lastStateStart, stateTime[state-1]))){
@@ -55,28 +59,38 @@ void loop() {
     if (state>Rr2)
       state=Gr;
     lastStateStart=now;
-
-    //Set lights
-    switch(state){
-      case Gr:
-        lightCar('G');
-        lightPasserby('R');
-        break;
-      case Rg:
-        lightCar('R');
-        lightPasserby('G');
-        break;
-      case Rr1:
-      case Rr2:
-        lightCar('R');
-        lightPasserby('R');
-        break;
-      default:
-        lightCar('Y');
-        lightPasserby('G');
-        break;
-    }
   }
+
+  //Set lights
+  switch(state){
+    case Gr:
+      lightCar('G');
+      lightPasserby('R');
+      break;
+    case Yr:
+      lightCar('Y');
+      lightPasserby('R');
+      break;
+    case Rg:
+      lightCar('R');
+      lightPasserby('G');
+      break;
+    case Rr1:
+    case Rr2:
+      lightCar('R');
+      lightPasserby('R');
+      break;
+    default:
+      lightCar('Y');
+      lightPasserby('G');
+      break;
+  }
+
+  // Serial.println(state);
+  // Serial.println(waiting);
+  // Serial.println();
+  Serial.println(digitalRead(BOTON));
+  // delay(1000);
 }
 
 bool checkTime(unsigned long now, unsigned long base, int target){

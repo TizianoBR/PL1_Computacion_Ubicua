@@ -1,4 +1,3 @@
-
 void InitMqtt() 
 {
 	mqttClient.setServer(MQTT_BROKER_ADRESS, MQTT_PORT);

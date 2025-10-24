@@ -38,12 +38,14 @@ void setup() {
 
   Serial.begin(9600);
   Serial.println("Hola");
+
+  MqttInit
 }
 
 void loop() {
   now = millis();
   //Check button
-  if ((state==Gr || state==Rr2) && digitalRead(BOTON)==LOW){
+  if ((state==Gr || state==Rr2) && digitalRead(BOTON)==HIGH){
     waiting=true;
     digitalWrite(ESPERA, HIGH);
   }
@@ -86,10 +88,31 @@ void loop() {
       break;
   }
 
-  // Serial.println(state);
-  // Serial.println(waiting);
+  String str="";
+  switch (state){
+    case Gr:
+      str="Gr";
+      break;
+    case Yr:
+      str="Yr";
+      break;
+    case Rr1:
+      str="Rr1";
+      break;
+    case Rg:
+      str="Rg";
+      break;
+    case Rr2:
+      str="Rr2";
+      break;
+    default:
+      str="Error";
+      break;
+  }
+  // Serial.println(str);
+  Serial.println(waiting);
   // Serial.println();
-  Serial.println(digitalRead(BOTON));
+  // Serial.println(digitalRead(BOTON));
   // delay(1000);
 }
 

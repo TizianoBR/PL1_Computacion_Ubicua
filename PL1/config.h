@@ -1,4 +1,4 @@
-const char* ssid     = "ssid";
+const char* ssid     = "cubicua";
 const char* password = "password";
 const char* hostname = "ESP32_1";
 

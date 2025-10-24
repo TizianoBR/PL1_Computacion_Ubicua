@@ -1,4 +1,11 @@
+#include <WiFi.h>
+#include <ArduinoJson.h>
+#include <PubSubClient.h>
+
 #include <config.h>
+#include <ESP32_Utils.hpp>
+#include <MQTT.hpp>
+#include <ESP32_Utils_MQTT.hpp>
 
 //Component pins
 #define PEATONES 14
@@ -39,7 +46,8 @@ void setup() {
   Serial.begin(9600);
   Serial.println("Hola");
 
-  MqttInit
+  ConnectWiFi_STA(false);
+  InitMqtt();
 }
 
 void loop() {

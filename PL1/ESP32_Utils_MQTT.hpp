@@ -14,6 +14,7 @@ void ConnectMqtt()
 		if (mqttClient.connect(MQTT_CLIENT_NAME))
 		{
 			SuscribeMqtt();
+			Serial.println("Connected");
 		}
 		else
 		{

@@ -1,5 +1,5 @@
-const char* ssid     = "cubicua";
-const char* password = "password";
+const char* ssid     = "Tu_Wifi_Real";
+const char* password = "12345678";
 const char* hostname = "ESP32_1";
 
 IPAddress ip(192, 168, 1, 200);

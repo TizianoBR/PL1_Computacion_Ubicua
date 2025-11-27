@@ -23,6 +23,30 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
+  ubicuabbdd:
+    build: ./ubicuabbdd
+    container_name: ubicuabbdd_server
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword123
+      MYSQL_DATABASE: test_bbdd
+    restart: always
+    ports:
+      - "5432:5432"
+    networks:
+      - backend
+    volumes:
+      - ubicuabbdd:/var/lib/mysql
+  tomcat:
+    build: ./tomcat
+    container_name: tomcat_server
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+    depends_on:
+      - ubicuabbdd
+      - mqtt
 # Volúmenes persistentes para datos de broker MQTT
 volumes:
   mosquitto_data:

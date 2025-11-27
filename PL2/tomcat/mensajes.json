@@ -4,10 +4,10 @@
 "street_id":"ST_1103",
 "timestamp":"2025-09-18T09:37:28.225646",
 "location":{
-"latitude":40.3636491,
-"longitude":-3.7584933,
-"district":"Latina",
-"neighborhood":"Lucero"
+    "latitude":40.3636491,
+    "longitude":-3.7584933,
+    "district":"Latina",
+    "neighborhood":"Lucero"
 },
 "data":{ 
     "state": "Gr",
@@ -19,7 +19,5 @@
     "timeRg":2000,
     "timeRr1":2000,
     "timeRr2":2000
-
  }
-
 }

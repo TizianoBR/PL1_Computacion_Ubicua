@@ -10,15 +10,16 @@
 "neighborhood":"Lucero"
 },
 "data":{ 
-    "state": str,
+    "state": "Gr",
     "TL_type":"mixed",
-    "wait":waiting?1:0,
-    "lock":emergencia?1:0,
-    "timeGr":"1000",
-    "timeYr":"2000",
-    "timeRg":"2000",
-    "timeRr1":"2000",
-    "timeRr2":"2000"
+    "wait":0,
+    "lock":0,
+    "timeGr":1000,
+    "timeYr":2000,
+    "timeRg":2000,
+    "timeRr1":2000,
+    "timeRr2":2000
 
  }
+
 }

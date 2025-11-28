@@ -1,6 +1,7 @@
 # Dockerfile
 FROM eclipse-mosquitto:latest
 
+
 # Copiar configuración de Mosquitto
  COPY config/mosquitto.conf /mosquitto/config/mosquitto.conf
 
@@ -15,3 +16,4 @@ CMD ["mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
 # docker build -t mi-mosquitto .
 # docker run -d -p 1883:1883 --name mosquitto-container mi-mosquitto
 # docker ps
+

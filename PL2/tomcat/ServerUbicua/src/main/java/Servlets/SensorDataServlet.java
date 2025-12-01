@@ -7,8 +7,9 @@ import java.sql.*;
 import javax.naming.*;
 import javax.sql.DataSource;
 
-import mqtt.MQTTPublisher;
-import mqtt.MQTTSuscriber;
+import Mqtt.MQTTPublisher;
+import Mqtt.MQTTSuscriber;
+import Mqtt.MQTTBroker;
 
 public class SensorDataServlet extends HttpServlet {
 
@@ -28,11 +29,7 @@ public class SensorDataServlet extends HttpServlet {
             publisher = new MQTTPublisher();
 
             // **Arrancar suscriptor**
-            subscriber = new MQTTSuscriber(
-                    "tcp://mosquitto:1883",   // broker
-                    "tomcat-server",         // clientId
-                    null, null               // sin auth
-            );
+            subscriber = new MQTTSuscriber(new MQTTBroker());
 
             subscriber.subscribe("city/sensors/commands");
 

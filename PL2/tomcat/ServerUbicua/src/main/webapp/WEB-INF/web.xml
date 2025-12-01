@@ -12,4 +12,14 @@
             30
         </session-timeout>
     </session-config>
+
+    <servlet>
+        <servlet-name>SensorDataServlet</servlet-name>
+        <servlet-class>com.example.Servlets.SensorDataServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SensorDataServlet</servlet-name>
+        <url-pattern>/api/sensors</url-pattern>
+    </servlet-mapping>
 </web-app>

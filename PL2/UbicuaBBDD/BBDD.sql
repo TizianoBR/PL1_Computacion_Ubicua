@@ -87,6 +87,18 @@ CREATE TABLE info_screen (
     FOREIGN KEY (sensor_id, street_id) REFERENCES sensors(sensor_id, street_id)
 );
 
+CREATE SCHEMA UBICOMP;
+
+CREATE TABLE UBICOMP.MEASURMENTS(
+    timestamp TIMESTAMP,
+    value INTEGER,
+    PRIMARY KEY (timestamp)
+);
+INSERT INTO UBICOMP.MEASURMENTS (timestamp, value) VALUES
+('2024-06-01 12:00:00', 100),
+('2024-06-01 13:00:00', 150),
+('2024-06-01 14:00:00', 200);
+
 -- Inserts
 INSERT INTO sensors (sensor_id, street_id, sensor_type, latitude, longitude, district, neighborhood) VALUES
 ('sensor_001', 'ST_1234', 'meteorology', 40.4168, -3.7038, 'Centro', 'Sol'),

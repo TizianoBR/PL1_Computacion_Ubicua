@@ -29,13 +29,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword123
       MYSQL_DATABASE: test_bbdd
-    restart: always
-    ports:
-      - "5432:5432"
+    restart: unless-stopped
+    expose:
+      - "5432"
     networks:
       - backend
-    volumes:
-      - ubicuabbdd:/var/lib/mysql
   tomcat:
     build: ./tomcat
     container_name: tomcat_server

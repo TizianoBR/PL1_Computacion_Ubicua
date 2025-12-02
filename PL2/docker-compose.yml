@@ -26,8 +26,8 @@ services:
     image: postgres:11
     container_name: ubicuabbdd_server
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword123
-      MYSQL_DATABASE: test_bbdd
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=ubicuabbdd
     restart: unless-stopped
     ports:
       - "5432:5432"

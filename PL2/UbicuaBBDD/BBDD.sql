@@ -88,12 +88,12 @@ CREATE TABLE info_screen (
 );
 
 
-CREATE TABLE measurments(
+CREATE TABLE measurements(
     timestamp TIMESTAMP,
     value INTEGER,
     PRIMARY KEY (timestamp)
 );
-INSERT INTO measurments (timestamp, value) VALUES
+INSERT INTO measurements (timestamp, value) VALUES
 ('2024-06-01 12:00:00', 100),
 ('2024-06-01 13:00:00', 150),
 ('2024-06-01 14:00:00', 200);

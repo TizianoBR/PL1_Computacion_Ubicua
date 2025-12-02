@@ -4,7 +4,7 @@ DROP DATABASE IF EXISTS ubicuabbdd;
 CREATE DATABASE ubicuabbdd;
 \c ubicuabbdd
 
---USE bbdd;
+USE ubicuabbdd;
 
 BEGIN;
 
@@ -87,14 +87,13 @@ CREATE TABLE info_screen (
     FOREIGN KEY (sensor_id, street_id) REFERENCES sensors(sensor_id, street_id)
 );
 
-CREATE SCHEMA UBICOMP;
 
-CREATE TABLE UBICOMP.MEASURMENTS(
+CREATE TABLE measurments(
     timestamp TIMESTAMP,
     value INTEGER,
     PRIMARY KEY (timestamp)
 );
-INSERT INTO UBICOMP.MEASURMENTS (timestamp, value) VALUES
+INSERT INTO measurments (timestamp, value) VALUES
 ('2024-06-01 12:00:00', 100),
 ('2024-06-01 13:00:00', 150),
 ('2024-06-01 14:00:00', 200);

@@ -1,15 +1,15 @@
 package Servlets;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 import java.io.*;
 import java.sql.*;
 import javax.naming.*;
 import javax.sql.DataSource;
 
-import Mqtt.MQTTPublisher;
-import Mqtt.MQTTSuscriber;
-import Mqtt.MQTTBroker;
+import mqtt.MQTTPublisher;
+import mqtt.MQTTSuscriber;
+import mqtt.MQTTBroker;
 
 public class SensorDataServlet extends HttpServlet {
 
@@ -31,7 +31,7 @@ public class SensorDataServlet extends HttpServlet {
             // **Arrancar suscriptor**
             subscriber = new MQTTSuscriber(new MQTTBroker());
 
-            subscriber.subscribe("city/sensors/commands");
+            subscriber.subscribeTopic("city/sensors/commands");
 
         } catch (Exception e) {
             throw new ServletException("Error inicializando MQTT o DB", e);
@@ -63,6 +63,7 @@ public class SensorDataServlet extends HttpServlet {
 
             // **Publicación MQTT real**
             publisher.publish(
+                new MQTTBroker(),
                 "city/logs", 
                 "{ \"event\":\"query\", \"date\":\"" + date + "\" }"
             );

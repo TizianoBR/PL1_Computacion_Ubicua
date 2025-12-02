@@ -1,55 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="info">
-    <Appenders>				
-        <!-- LOG -->
-        <RollingFile name="LogFile" fileName="/opt/tomcat/webapps/Ubicua/log.log"
-                             filePattern="/opt/tomcat/webapps/Ubicua/logs/Ubicua-%d{yyyy}-%i.log.gz">
-            <PatternLayout
-                pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
-                header="-- UBICOMP SERVER EXAMPLE LOG --" />
+    <Appenders>
+        <!-- Application log -->
+        <RollingFile name="LogFile"
+                 fileName="${sys:catalina.base}/logs/Ubicua.log"
+                 filePattern="${sys:catalina.base}/logs/Ubicua-%d{yyyy}-%i.log.gz"
+                 immediateFlush="true">
+            <PatternLayout pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
+                           header="-- UBICUA SERVER LOG --" />
             <Policies>
                 <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="10 MB" />
             </Policies>
             <DefaultRolloverStrategy max="20"/>
-        </RollingFile>			
-        <!-- LOG -->
-        <RollingFile name="LogFileMQTT" fileName="/opt/tomcat/webapps/Ubicua/logmqtt.log"
-                             filePattern="/opt/tomcat/webapps/Ubicua/logs/Ubicuamqtt-%d{yyyy}-%i.log.gz">
-            <PatternLayout
-                pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
-                header="-- UBICOMP SERVER EXAMPLE MQTT LOG --" />
+        </RollingFile>
+        
+            <!-- Console for docker logs -->
+            <Console name="Console" target="SYSTEM_OUT">
+                <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} ### %msg%n"/>
+            </Console>
+
+        <!-- MQTT log -->
+        <RollingFile name="LogFileMQTT"
+                 fileName="${sys:catalina.base}/logs/Ubicua-mqtt.log"
+                 filePattern="${sys:catalina.base}/logs/Ubicua-mqtt-%d{yyyy}-%i.log.gz"
+                 immediateFlush="true">
+            <PatternLayout pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
+                           header="-- UBICUA MQTT LOG --" />
             <Policies>
                 <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="10 MB" />
             </Policies>
             <DefaultRolloverStrategy max="20"/>
-        </RollingFile>			
-        <!-- LOGDB -->
-        <RollingFile name="LogFileDB" fileName="/opt/tomcat/webapps/Ubicua/logdb.log"
-                             filePattern="/opt/tomcat/webapps/Ubicua/logs/Ubicuadb-%d{yyyy}-%i.log.gz">
-            <PatternLayout
-                pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
-                header="-- UBICOMP SERVER EXAMPLE DATABASE LOG --" />
+        </RollingFile>
+
+        <!-- Database log -->
+        <RollingFile name="LogFileDB"
+                 fileName="${sys:catalina.base}/logs/Ubicua-db.log"
+                 filePattern="${sys:catalina.base}/logs/Ubicua-db-%d{yyyy}-%i.log.gz"
+                 immediateFlush="true">
+            <PatternLayout pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
+                           header="-- UBICUA DB LOG --" />
             <Policies>
                 <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="10 MB" />
             </Policies>
             <DefaultRolloverStrategy max="20"/>
-        </RollingFile>	
+        </RollingFile>
     </Appenders>
+
     <Loggers>
-        <!-- LOG -->
         <Logger name="log" additivity="FALSE" level="DEBUG">
             <AppenderRef ref="LogFile" level="DEBUG" />
         </Logger>
-        <!-- LOG MQTT -->
+
         <Logger name="logmqtt" additivity="FALSE" level="DEBUG">
             <AppenderRef ref="LogFileMQTT" level="DEBUG" />
         </Logger>
-        <!-- LOG DATABASE-->
+
         <Logger name="logdb" additivity="FALSE" level="DEBUG">
             <AppenderRef ref="LogFileDB" level="DEBUG" />
         </Logger>
+
+        <Root level="INFO">
+            <AppenderRef ref="LogFile" />
+            <AppenderRef ref="Console" />
+        </Root>
     </Loggers>
 </Configuration>

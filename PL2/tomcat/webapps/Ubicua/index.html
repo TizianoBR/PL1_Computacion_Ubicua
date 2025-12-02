@@ -34,7 +34,7 @@
                 $.ajax(
                 {
                     data: {},
-                    url: "GetData",
+                    url: "/ServerExampleUbicomp/GetData",
                     type: 'post',
                     async: false,
                     success: function (response)
@@ -47,7 +47,7 @@
                         {
                             newRow += "<tr>";
                             newRow += "<td>" + value.date + "</td>";
-                            newRow += "<td>" + value.value + " ï¿½C</td>";
+                            newRow += "<td>" + value.value + " °C</td>";
                             newRow += "</tr>";
                         });
                         $("#dataTable").append(newRow);
@@ -61,7 +61,7 @@
                 $.ajax(
                 {
                     data: {value: value},
-                    url: "SetData",
+                    url: "/UbicompServerExample/SetData",
                     type: 'post',
                     async: false,
                     success: function (response)

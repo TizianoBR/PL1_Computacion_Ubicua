@@ -1,0 +1,124 @@
+-- UBICUA MQTT LOG --
+2025-12-02 18:29:52.177 DEBUG mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:17) logmqtt ### Suscribe to topics
+2025-12-02 18:29:53.250 DEBUG mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:25) logmqtt ### Mqtt Connecting to broker: tcp://localhost:1883
+2025-12-02 18:29:53.366 ERROR mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:34) logmqtt ### Error suscribing topic: {} org.eclipse.paho.client.mqttv3.MqttException: Unable to connect to server
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:80) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:543) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 2 more
+
+2025-12-02 18:29:53.747 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:26) logmqtt ### Connecting to broker: tcp://localhost:1883
+2025-12-02 18:29:53.750 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:37) logmqtt ### Error on publishing value: {} org.eclipse.paho.client.mqttv3.MqttException: Unable to connect to server
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:80) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:543) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 2 more
+
+2025-12-02 18:41:43.628 DEBUG mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:17) logmqtt ### Suscribe to topics
+2025-12-02 18:41:44.488 DEBUG mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:25) logmqtt ### Mqtt Connecting to broker: tcp://localhost:1883
+2025-12-02 18:41:44.566 ERROR mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:34) logmqtt ### Error suscribing topic: {} org.eclipse.paho.client.mqttv3.MqttException: Unable to connect to server
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:80) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:543) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 2 more
+
+2025-12-02 18:41:44.821 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:26) logmqtt ### Connecting to broker: tcp://localhost:1883
+2025-12-02 18:41:44.824 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:37) logmqtt ### Error on publishing value: {} org.eclipse.paho.client.mqttv3.MqttException: Unable to connect to server
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:80) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:543) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 2 more
+
+2025-12-02 18:50:19.993 DEBUG mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:17) logmqtt ### Suscribe to topics
+2025-12-02 18:50:20.931 DEBUG mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:25) logmqtt ### Mqtt Connecting to broker: tcp://localhost:1883
+2025-12-02 18:50:21.011 ERROR mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:34) logmqtt ### Error suscribing topic: {} org.eclipse.paho.client.mqttv3.MqttException: Unable to connect to server
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:80) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:543) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 2 more
+
+2025-12-02 18:50:21.303 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:26) logmqtt ### Connecting to broker: tcp://localhost:1883
+2025-12-02 18:50:21.306 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:37) logmqtt ### Error on publishing value: {} org.eclipse.paho.client.mqttv3.MqttException: Unable to connect to server
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:80) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:543) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 2 more
+
+2025-12-02 19:13:10.265 DEBUG mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:17) logmqtt ### Suscribe to topics
+2025-12-02 19:13:11.105 DEBUG mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:25) logmqtt ### Mqtt Connecting to broker: tcp://localhost:1883
+2025-12-02 19:13:11.194 ERROR mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:34) logmqtt ### Error suscribing topic: {} org.eclipse.paho.client.mqttv3.MqttException: Unable to connect to server
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:80) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:543) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 2 more
+
+2025-12-02 19:13:11.500 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:26) logmqtt ### Connecting to broker: tcp://localhost:1883
+2025-12-02 19:13:11.504 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:37) logmqtt ### Error on publishing value: {} org.eclipse.paho.client.mqttv3.MqttException: Unable to connect to server
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:80) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[?:?]
+Caused by: java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method) ~[?:?]
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:639) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:543) ~[?:?]
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:594) ~[?:?]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284) ~[?:?]
+	at java.base/java.net.Socket.connect(Socket.java:659) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 2 more

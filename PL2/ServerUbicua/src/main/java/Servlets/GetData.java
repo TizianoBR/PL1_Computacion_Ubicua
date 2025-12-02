@@ -33,12 +33,15 @@ public class GetData extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Log.log.info("TESTTESTTESTTSETTSETTSET");
         Log.log.info("--Set new value into the DB--");
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try 
         {
+            Log.log.info("Getting data from DB");
             ArrayList<Measurement> values =Logic.getDataFromDB();
+            Log.log.info("Data obtained from DB");
             String jsonMeasurements = new Gson().toJson(values);
             Log.log.info("Values=>" + jsonMeasurements);
             out.println(jsonMeasurements);

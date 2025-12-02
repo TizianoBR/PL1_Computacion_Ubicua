@@ -113,11 +113,11 @@ public class ConectionDDBB
 
     public static PreparedStatement GetDataBD(Connection con)
     {
-    	return getStatement(con,"SELECT * FROM UBICOMP.MEASUREMENT");  	
+    	return getStatement(con,"SELECT time, date FROM measurement");
     }
     
     public static PreparedStatement SetDataBD(Connection con)
     {
-    	return getStatement(con,"INSERT INTO UBICOMP.MEASUREMENT VALUES (?,?)");  	
+    	return getStatement(con,"INSERT INTO measurement VALUES (?,?)");  	
     }
 }

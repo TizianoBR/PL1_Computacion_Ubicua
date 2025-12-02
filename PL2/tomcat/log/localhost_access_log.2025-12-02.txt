@@ -1,0 +1,11 @@
+172.18.0.1 - - [02/Dec/2025:17:15:27 +0000] "GET /Ubicua/ HTTP/1.1" 304 -
+172.18.0.1 - - [02/Dec/2025:17:15:27 +0000] "POST /ServerExampleUbicomp/GetData HTTP/1.1" 404 683
+172.18.0.1 - - [02/Dec/2025:17:15:48 +0000] "POST /UbicompServerExample/SetData HTTP/1.1" 404 683
+172.18.0.1 - - [02/Dec/2025:17:21:45 +0000] "GET /Ubicua/ HTTP/1.1" 304 -
+172.18.0.1 - - [02/Dec/2025:17:21:45 +0000] "POST /ServerExampleUbicomp/GetData HTTP/1.1" 404 683
+172.18.0.1 - - [02/Dec/2025:17:21:47 +0000] "POST /UbicompServerExample/SetData HTTP/1.1" 404 683
+172.18.0.1 - - [02/Dec/2025:17:26:41 +0000] "POST /UbicompServerExample/SetData HTTP/1.1" 404 683
+172.18.0.1 - - [02/Dec/2025:17:26:42 +0000] "POST /UbicompServerExample/SetData HTTP/1.1" 404 683
+172.18.0.1 - - [02/Dec/2025:17:26:42 +0000] "POST /UbicompServerExample/SetData HTTP/1.1" 404 683
+172.18.0.1 - - [02/Dec/2025:17:26:42 +0000] "POST /UbicompServerExample/SetData HTTP/1.1" 404 683
+172.18.0.1 - - [02/Dec/2025:17:26:42 +0000] "POST /UbicompServerExample/SetData HTTP/1.1" 404 683

@@ -56,7 +56,7 @@ services:
 # Volúmenes persistentes para datos de broker MQTT
 volumes:
   mosquitto_data:
-  ubicuabbddd_data:
+  ubicuabbdd_data:
   tomcat_logs:
 # Red interna para comunicación entre servicios
 networks:

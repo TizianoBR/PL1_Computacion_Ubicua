@@ -2,8 +2,8 @@
 <Configuration status="info">
     <Appenders>				
         <!-- LOG -->
-        <RollingFile name="LogFile" fileName="/opt/tomcat/webapps/ServerExampleUbicomp/log.log"
-                             filePattern="/opt/tomcat/webapps/ServerExampleUbicomp/logs/Ubicomp-%d{yyyy}-%i.log.gz">
+        <RollingFile name="LogFile" fileName="/opt/tomcat/webapps/Ubicua/log.log"
+                             filePattern="/opt/tomcat/webapps/Ubicua/logs/Ubicua-%d{yyyy}-%i.log.gz">
             <PatternLayout
                 pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
                 header="-- UBICOMP SERVER EXAMPLE LOG --" />
@@ -14,8 +14,8 @@
             <DefaultRolloverStrategy max="20"/>
         </RollingFile>			
         <!-- LOG -->
-        <RollingFile name="LogFileMQTT" fileName="/opt/tomcat/webapps/ServerExampleUbicomp/logmqtt.log"
-                             filePattern="/opt/tomcat/webapps/ServerExampleUbicomp/logs/Ubicompmqtt-%d{yyyy}-%i.log.gz">
+        <RollingFile name="LogFileMQTT" fileName="/opt/tomcat/webapps/Ubicua/logmqtt.log"
+                             filePattern="/opt/tomcat/webapps/Ubicua/logs/Ubicuamqtt-%d{yyyy}-%i.log.gz">
             <PatternLayout
                 pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
                 header="-- UBICOMP SERVER EXAMPLE MQTT LOG --" />
@@ -26,8 +26,8 @@
             <DefaultRolloverStrategy max="20"/>
         </RollingFile>			
         <!-- LOGDB -->
-        <RollingFile name="LogFileDB" fileName="/opt/tomcat/webapps/ServerExampleUbicomp/logdb.log"
-                             filePattern="/opt/tomcat/webapps/ServerExampleUbicomp/logs/Ubicompdb-%d{yyyy}-%i.log.gz">
+        <RollingFile name="LogFileDB" fileName="/opt/tomcat/webapps/Ubicua/logdb.log"
+                             filePattern="/opt/tomcat/webapps/Ubicua/logs/Ubicuadb-%d{yyyy}-%i.log.gz">
             <PatternLayout
                 pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
                 header="-- UBICOMP SERVER EXAMPLE DATABASE LOG --" />

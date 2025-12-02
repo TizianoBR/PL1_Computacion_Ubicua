@@ -37,3 +37,9 @@
 02-Dec-2025 17:15:27.106 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/Ubicua.war] has finished in [23,387] ms
 02-Dec-2025 17:15:27.115 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
 02-Dec-2025 17:15:27.132 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [23623] milliseconds
+02-Dec-2025 17:33:50.377 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/ServerExampleUbicomp.war]
+02-Dec-2025 17:33:56.758 WARNING [Catalina-utility-2] java.util.ArrayList.forEach Name = ubicuabbdd Property maxActive is not used in DBCP2, use maxTotal instead. maxTotal default value is 8. You have set value of "20" for "maxActive" property, which is being ignored.
+02-Dec-2025 17:33:56.759 WARNING [Catalina-utility-2] java.util.ArrayList.forEach Name = ubicuabbdd Property maxWait is not used in DBCP2 , use maxWaitMillis instead. maxWaitMillis default value is PT-0.001S. You have set value of "-1" for "maxWait" property, which is being ignored.
+02-Dec-2025 17:33:56.858 INFO [Catalina-utility-2] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+02-Dec-2025 17:34:14.106 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/ServerExampleUbicomp.war] has finished in [23,730] ms
+02-Dec-2025 17:34:24.117 INFO [Catalina-utility-2] org.apache.catalina.startup.HostConfig.undeploy Undeploying context [/ServerExampleUbicomp]

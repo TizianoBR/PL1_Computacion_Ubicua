@@ -1,7 +1,7 @@
 const char* MQTT_BROKER_ADRESS = "test.mosquitto.org";
 const uint16_t MQTT_PORT = 1883;
 const char* MQTT_CLIENT_NAME = "ESP32Client_1";
-const char* topicSend = "topic/prueba";
+const char* topicSend = "sensors/ST_1103";
 
 WiFiClient espClient;
 PubSubClient mqttClient(espClient);

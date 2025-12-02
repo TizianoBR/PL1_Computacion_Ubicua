@@ -9,8 +9,7 @@ services:
       - "1883:1883"  # Puerto MQTT estándar
       - "9001:9001"  # Puerto WebSocket para MQTT
     volumes:
-      - ./mqtt/config:/mosquitto/config   # Configuración personalizada
-      - ./mqtt/data:/mosquitto/data       # Persistencia de mensajes
+      - ./mqtt/config:/mosquitto/config   # Configuración personalizada    
       - ./mqtt/log:/mosquitto/log         # Logs del broker
       - mosquitto_data:/mosquitto/data    # Persistencia adicional 
     networks:
@@ -24,31 +23,42 @@ services:
       retries: 3
       start_period: 30s
   ubicuabbdd:
-    build: ./ubicuabbdd
+    image: postgres:11
     container_name: ubicuabbdd_server
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword123
       MYSQL_DATABASE: test_bbdd
     restart: unless-stopped
-    expose:
-      - "5432"
+    ports:
+      - "5432:5432"
     networks:
-      - backend
+      - app-network
+    volumes:
+      - ubicuabbddd_data:/var/lib/mysql
+      - ./ubicuabbdd/sql/iniciarBD.sql:/docker-entrypoint-initdb.d/iniciarBD.sql:ro
+      #########
   tomcat:
-    build: ./tomcat
+    build: .
     container_name: tomcat_server
     restart: always
     ports:
       - "8080:8080"
+    volumes:
+      - ./tomcat/webapps:/usr/local/tomcat/webapps
+      - ./tomcat/conf/context.xml:/usr/local/tomcat/conf/context.xml
+      - ./tomcat/log:/usr/local/tomcat/logs
+
     networks:
-      - backend
+      - app-network
     depends_on:
       - ubicuabbdd
       - mqtt
 # Volúmenes persistentes para datos de broker MQTT
 volumes:
   mosquitto_data:
+  ubicuabbddd_data:
+  tomcat_logs:
 # Red interna para comunicación entre servicios
 networks:
   app-network:
-    driver: host
+    driver: bridge

@@ -13,3 +13,4 @@
 2025-12-02 19:14:08.195 INFO  servlets.SetData.doGet(SetData.java:25) log ### --Get values from the DB--
 2025-12-02 19:14:08.201 INFO  servlets.GetData.doGet(GetData.java:37) log ### --Set new value into the DB--
 2025-12-02 19:45:08.244 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:33) log ### -->Suscribe Topics<--
+2025-12-03 07:20:27.304 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:33) log ### -->Suscribe Topics<--

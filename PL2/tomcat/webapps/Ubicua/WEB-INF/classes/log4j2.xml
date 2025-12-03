@@ -3,28 +3,23 @@
     <Appenders>
         <!-- Application log -->
         <RollingFile name="LogFile"
-                 fileName="${sys:catalina.base}/logs/Ubicua.log"
-                 filePattern="${sys:catalina.base}/logs/Ubicua-%d{yyyy}-%i.log.gz"
-                 immediateFlush="true">
+                fileName="${sys:catalina.base}/logs/Ubicua.log"
+                filePattern="${sys:catalina.base}/logs/Ubicua-%d{yyyy}-%i.log.gz">
+
             <PatternLayout pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
-                           header="-- UBICUA SERVER LOG --" />
+                header="-- UBICUA SERVER LOG --" />
+            
             <Policies>
                 <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="10 MB" />
             </Policies>
             <DefaultRolloverStrategy max="20"/>
         </RollingFile>
-        
-            <!-- Console for docker logs -->
-            <Console name="Console" target="SYSTEM_OUT">
-                <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} ### %msg%n"/>
-            </Console>
 
         <!-- MQTT log -->
         <RollingFile name="LogFileMQTT"
-                 fileName="${sys:catalina.base}/logs/Ubicua-mqtt.log"
-                 filePattern="${sys:catalina.base}/logs/Ubicua-mqtt-%d{yyyy}-%i.log.gz"
-                 immediateFlush="true">
+                     fileName="${sys:catalina.base}/logs/Ubicua-mqtt.log"
+                     filePattern="${sys:catalina.base}/logs/Ubicua-mqtt-%d{yyyy}-%i.log.gz">
             <PatternLayout pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
                            header="-- UBICUA MQTT LOG --" />
             <Policies>
@@ -36,9 +31,8 @@
 
         <!-- Database log -->
         <RollingFile name="LogFileDB"
-                 fileName="${sys:catalina.base}/logs/Ubicua-db.log"
-                 filePattern="${sys:catalina.base}/logs/Ubicua-db-%d{yyyy}-%i.log.gz"
-                 immediateFlush="true">
+                     fileName="${sys:catalina.base}/logs/Ubicua-db.log"
+                     filePattern="${sys:catalina.base}/logs/Ubicua-db-%d{yyyy}-%i.log.gz">
             <PatternLayout pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
                            header="-- UBICUA DB LOG --" />
             <Policies>
@@ -64,7 +58,6 @@
 
         <Root level="INFO">
             <AppenderRef ref="LogFile" />
-            <AppenderRef ref="Console" />
         </Root>
     </Loggers>
 </Configuration>

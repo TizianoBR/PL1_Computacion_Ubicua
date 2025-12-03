@@ -3,7 +3,7 @@ package mqtt;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
-import Database.Topics;
+import database.Topics;
 import logic.Log;
 
 public class MQTTSuscriber implements MqttCallback {

@@ -1,6 +1,6 @@
 package logic;
 
-import Database.ConectionDDBB;
+import database.ConectionDDBB;
 import java.util.ArrayList;
 import java.util.Date;
 import java.sql.Connection;

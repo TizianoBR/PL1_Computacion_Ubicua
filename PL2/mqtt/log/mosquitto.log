@@ -1762,3 +1762,9 @@
 1764746893: New connection from ::1:59926 on port 1883.
 1764746893: New client connected from ::1:59926 as auto-731E97DC-FEED-9504-8BFD-4292F8940902 (p2, c1, k60).
 1764746893: Client auto-731E97DC-FEED-9504-8BFD-4292F8940902 disconnected.
+1764746908: New connection from ::1:39112 on port 1883.
+1764746908: New client connected from ::1:39112 as auto-7D520B4F-57C5-5FDE-5915-A88E87FFAB9B (p2, c1, k60).
+1764746908: Client auto-7D520B4F-57C5-5FDE-5915-A88E87FFAB9B disconnected.
+1764746923: New connection from ::1:39196 on port 1883.
+1764746923: New client connected from ::1:39196 as auto-521E15AF-47C9-2492-AC7E-D0204CA35644 (p2, c1, k60).
+1764746923: Client auto-521E15AF-47C9-2492-AC7E-D0204CA35644 disconnected.

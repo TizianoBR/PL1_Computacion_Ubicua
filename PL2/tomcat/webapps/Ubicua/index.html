@@ -29,44 +29,42 @@
                 loadData();
             });
 
-            function loadData()
-            {
-                $.ajax(
-                {
-                    data: {},
-                    url: "/ServerExampleUbicomp/GetData",
-                    type: 'post',
-                    async: false,
-                    success: function (response)
-                    {
-                        var resp = JSON.parse(response);
-                        console.log(resp);
+            function loadData() {
+                $.ajax({
+                    url: "/Ubicua/GetData",  // url correcta con contexto
+                    type: 'GET',
+                    success: function(response) {
                         $("#dataTable").empty();
                         var newRow = "";
-                        $.each(resp, function (i, value)
-                        {
+                        $.each(response, function(i, value) {
                             newRow += "<tr>";
                             newRow += "<td>" + value.date + "</td>";
-                            newRow += "<td>" + value.value + " °C</td>";
+                            newRow += "<td>" + value.value + " Â°C</td>";
                             newRow += "</tr>";
                         });
                         $("#dataTable").append(newRow);
+                    },
+                    error: function() {
+                        alert("Error cargando datos");
                     }
                 });
             }
 
-            function insertData()
-            {
+            function insertData() {
                 var value = $('#newValue').val();
-                $.ajax(
-                {
-                    data: {value: value},
-                    url: "/UbicompServerExample/SetData",
-                    type: 'post',
-                    async: false,
-                    success: function (response)
-                    {
-                        loadData();
+                $.ajax({
+                    url: "/Ubicua/SetData",
+                    type: 'POST',
+                    data: { value: value },
+                    success: function(response) {
+                        if (response.success) {
+                            loadData();
+                        } else {
+                            alert("Error al insertar");
+                        }
+                    },
+                    error: function() {
+                        alert("Error al insertar");
                     }
                 });
             }
@@ -82,7 +80,7 @@
             <thead>
                 <tr>
                     <th scope="col">Date</th>
-                    <th scope="col">Temperature</th>
+                    <th scope="col">SixSeveeeen</th>
                 </tr>
             </thead>
             <tbody id="dataTable">

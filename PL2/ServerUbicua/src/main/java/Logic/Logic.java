@@ -49,38 +49,19 @@ public class Logic
 		return values;
 	}
 
-	public static ArrayList<Measurement> setDataToDB(int value)
-	{
-		ArrayList<Measurement> values = new ArrayList<Measurement>();
-		
-		ConectionDDBB conector = new ConectionDDBB();
-		Connection con = null;
-		try
-		{
-			con = conector.obtainConnection(true);
-			Log.log.info("Database Connected");
-
-			PreparedStatement ps = ConectionDDBB.SetDataBD(con);
-			ps.setInt(1, value);
-			ps.setTimestamp(2, new Timestamp((new Date()).getTime()));
-			Log.log.info("Query=>" + ps.toString());
-			ps.executeUpdate();
-		} catch (SQLException e)
-		{
-			Log.log.error("Error: " + e);
-			values = new ArrayList<Measurement>();
-		} catch (NullPointerException e)
-		{
-			Log.log.error("Error: " + e);
-			values = new ArrayList<Measurement>();
-		} catch (Exception e)
-		{
-			Log.log.error("Error:" + e);
-			values = new ArrayList<Measurement>();
-		}
-		conector.closeConnection(con);
-		return values;
-	}
+	public static void setDataToDB(int value) throws SQLException {
+    ConectionDDBB conector = new ConectionDDBB();
+    Connection con = null;
+    try {
+        con = conector.obtainConnection(true);
+        PreparedStatement ps = ConectionDDBB.SetDataBD(con);
+        ps.setInt(1, value);
+        ps.setTimestamp(2, new Timestamp((new Date()).getTime()));
+        ps.executeUpdate();
+    } finally {
+        conector.closeConnection(con);
+    }
+}
 	
 	
 }

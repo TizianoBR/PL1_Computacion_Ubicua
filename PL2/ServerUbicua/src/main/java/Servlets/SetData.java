@@ -13,35 +13,36 @@ import logic.Log;
 import logic.Logic;
 
 @WebServlet("/SetData")
-public class SetData extends HttpServlet 
-{
-	private static final long serialVersionUID = 1L;
-       
-    public SetData(){
-        super();
-    }
+public class SetData extends HttpServlet {
+    private static final long serialVersionUID = 1L;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        Log.log.info("--Get values from the DB--");
-        response.setContentType("text/html;charset=UTF-8");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
+
         try {
-            int value = Integer.parseInt(request.getParameter("value"));
+            String valueStr = request.getParameter("value");
+            if (valueStr == null) {
+                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                out.print("{\"error\":\"Missing parameter 'value'\"}");
+                return;
+            }
+            int value = Integer.parseInt(valueStr);
             Logic.setDataToDB(value);
-        } catch (NumberFormatException nfe){
-            out.println("-1");
-            Log.log.error("Number Format Exception: " + nfe);
-        } catch (IndexOutOfBoundsException iobe) {
-            out.println("-1");
-            Log.log.error("Index out of bounds Exception: " + iobe);
-        } catch (Exception e){
-            out.println("-1");
-            Log.log.error("Exception: " + e);
-        } finally{
+
+            out.print("{\"success\":true}");
+        } catch (NumberFormatException e) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            out.print("{\"error\":\"Invalid 'value' format\"}");
+        } catch (Exception e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            out.print("{\"error\":\"" + e.getMessage() + "\"}");
+        } finally {
             out.close();
         }
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            doGet(request, response);
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.sendError(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
     }
 }

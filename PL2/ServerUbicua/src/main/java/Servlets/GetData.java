@@ -20,45 +20,23 @@ import logic.Measurement;
  */
 @WebServlet("/GetData")
 public class GetData extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public GetData() {
-        super();
-    }
+    private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Log.log.info("TESTTESTTESTTSETTSETTSET");
-        Log.log.info("--Set new value into the DB--");
-        response.setContentType("text/html;charset=UTF-8");
+        Log.log.info("GetData servlet started");
+        response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try 
-        {
+        try {
             Log.log.info("Getting data from DB");
-            ArrayList<Measurement> values =Logic.getDataFromDB();
+            ArrayList<Measurement> values = Logic.getDataFromDB();
             Log.log.info("Data obtained from DB");
             String jsonMeasurements = new Gson().toJson(values);
             Log.log.info("Values=>" + jsonMeasurements);
             out.println(jsonMeasurements);
-        } catch (NumberFormatException nfe) 
-        {
-            out.println("-1");
-            Log.log.error("Number Format Exception: " + nfe);
-        } catch (IndexOutOfBoundsException iobe) 
-        {
-            out.println("-1");
-            Log.log.error("Index out of bounds Exception: " + iobe);
-        } catch (Exception e) 
-        {
-            out.println("-1");
+        } catch (Exception e) {
+            out.println("[]");  // mejor devolver JSON vacío para evitar error JS
             Log.log.error("Exception: " + e);
-        } finally 
-        {
+        } finally {
             out.close();
         }
     }
@@ -70,3 +48,4 @@ public class GetData extends HttpServlet {
         doGet(request, response);
     }
 }
+

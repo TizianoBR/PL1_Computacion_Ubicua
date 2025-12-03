@@ -23,7 +23,7 @@ public class SensorDataServlet extends HttpServlet {
         try {
             // Obtener pool JDBC
             Context ctx = new InitialContext();
-            dataSource = (DataSource) ctx.lookup("java:/comp/env/jdbc/sensordb");
+            dataSource = (DataSource) ctx.lookup("java:/comp/env/jdbc/ubicuabbdd");
 
             // **Instanciar publisher**
             publisher = new MQTTPublisher();

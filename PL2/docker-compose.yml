@@ -28,11 +28,11 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=ubicuabbdd
-      - MARIADB_USER=contadorUser # usuario de aplicación
-      - MARIADB_PASSWORD=contador # password de aplicación
+      - POSTGRES_USER=postgres # usuario de aplicación
+      - POSTGRES_PASSWORD=postgres # password de aplicación
     restart: unless-stopped
     ports:
-      - "5433:5432"
+      - "5432:5432"
     networks:
       - app-network
     volumes:
@@ -41,6 +41,10 @@ services:
       #########
   tomcat:
     build: .
+    environment:
+      - DB_HOST=ubicuabbdd
+      - DB_PORT=5432
+      - WAIT_TIMEOUT=60
     container_name: tomcat_server
     restart: unless-stopped
     ports:

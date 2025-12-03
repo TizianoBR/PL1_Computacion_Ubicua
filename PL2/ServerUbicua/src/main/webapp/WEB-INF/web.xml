@@ -14,12 +14,21 @@
     </session-config>
 
     <servlet>
-        <servlet-name>SensorDataServlet</servlet-name>
-        <servlet-class>com.example.Servlets.SensorDataServlet</servlet-class>
+        <servlet-name>GetData</servlet-name>
+        <servlet-class>servlets.GetData</servlet-class>
     </servlet>
-
     <servlet-mapping>
-        <servlet-name>SensorDataServlet</servlet-name>
-        <url-pattern>/api/sensors</url-pattern>
+        <servlet-name>GetData</servlet-name>
+        <url-pattern>/GetData</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SetData</servlet-name>
+        <servlet-class>servlets.SetData</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SetData</servlet-name>
+        <url-pattern>/SetData</url-pattern>
+    </servlet-mapping>
+
 </web-app>

@@ -1,90 +1,412 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="ISO-8859-1">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  
-        <title>Server example</title>
-        <style>
-            table {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Semáforo PL2</title>
 
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
-        </style>
-    </head>
-    <body>
-        <script>
-            $(document).ready(function ()
-            {
-                loadData();
-            });
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-            function loadData() {
-                $.ajax({
-                    url: "/Ubicua/GetData",  // url correcta con contexto
-                    type: 'GET',
-                    success: function(response) {
-                        $("#dataTable").empty();
-                        var newRow = "";
-                        $.each(response, function(i, value) {
-                            newRow += "<tr>";
-                            newRow += "<td>" + value.date + "</td>";
-                            newRow += "<td>" + value.value + " °C</td>";
-                            newRow += "</tr>";
-                        });
-                        $("#dataTable").append(newRow);
-                    },
-                    error: function() {
-                        alert("Error cargando datos");
-                    }
-                });
-            }
+  <style>
+    :root{
+      --bg:#fff8ec;
+      --card-bg:#ffffff;
+      --muted:#6b6b6b;
+      --accent-1:#ffd54a; /* amarillo */
+      --accent-2:#ff8a00; /* naranja */
+      --success:#16a34a;
+      --danger:#ef4444;
+      --text:#1f2937;
+    }
 
-            function insertData() {
-                var value = $('#newValue').val();
-                $.ajax({
-                    url: "/Ubicua/SetData",
-                    type: 'POST',
-                    data: { value: value },
-                    success: function(response) {
-                        if (response.success) {
-                            loadData();
-                        } else {
-                            alert("Error al insertar");
-                        }
-                    },
-                    error: function() {
-                        alert("Error al insertar");
-                    }
-                });
-            }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:var(--bg);
+      color:var(--text);
+      padding:28px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
 
-        </script>
-        <h1>SERVER EXAMPLE</h1>
-        <br>
-        <label>New value</label>
-        <input type="number" id="newValue"><br>
-        <button onclick="insertData()">Send</button> 
-        <br><br>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Date</th>
-                    <th scope="col">SixSeveeeen</th>
-                </tr>
-            </thead>
-            <tbody id="dataTable">
-            </tbody>
-        </table>		
-    </body>
+    .wrap{max-width:980px;margin:0 auto}
+    .header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .logo{
+      width:56px;height:56px;border-radius:12px;
+      background:linear-gradient(180deg,var(--accent-1),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08)
+    }
+    .logo span{font-size:18px;letter-spacing:0.6px}
+    h1{font-size:26px;margin:0;font-weight:800} /* más grande y en negrita */
+    p.lead{margin:0;color:var(--muted);font-size:14px}
+
+    .card{
+      background:var(--card-bg);
+      padding:20px;border-radius:12px;
+      box-shadow:0 8px 24px rgba(16,24,40,0.06);
+      border:1px solid rgba(0,0,0,0.04);
+    }
+
+    .section{margin-top:20px}
+    .section h2{
+      margin:0;
+      color:var(--text);
+      font-size:18px;
+      font-weight:800; /* encabezados más visibles y en negrita */
+    }
+    .hint{font-size:13px;color:var(--muted);margin-top:8px}
+
+    .tiempos-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .time-card{
+      background: linear-gradient(180deg,#fff,#fffef6);
+      border:1px solid rgba(0,0,0,0.04);
+      padding:14px;border-radius:10px;
+      display:flex;flex-direction:column;align-items:stretch;
+    }
+    .time-value{
+      font-size:22px;font-weight:700;color:var(--accent-2);
+      text-align:center;margin-bottom:10px;
+    }
+    .time-label{font-size:14px;color:var(--muted); text-align:center; margin-bottom:6px; font-weight:700}
+    .time-update{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+    .time-update input[type=number]{
+      width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06); font-size:14px;
+    }
+    .btn{
+      background:linear-gradient(90deg,#ffb84d,#ff7a00);border:none;padding:10px 12px;border-radius:8px;color:#fff;
+      cursor:pointer;font-weight:700;box-shadow:inset 0 -2px 0 rgba(0,0,0,0.06);transition:transform .06s;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.secondary{
+      background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text);font-weight:700;
+    }
+
+    .controls{display:flex;align-items:center;gap:14px;margin-top:12px;flex-wrap:wrap}
+    .wait-circle{
+      width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;
+      color:#fff;box-shadow:0 6px 18px rgba(16,24,40,0.06);transition:all .18s;
+      border:4px solid rgba(0,0,0,0.04);
+    }
+    .wait-red{background:var(--danger)}
+    .wait-green{background:var(--success)}
+
+    .emergencia{display:flex;align-items:center;gap:12px}
+    .pill{padding:8px 14px;border-radius:999px;font-weight:700;min-width:72px;text-align:center}
+    .pill.on{background:#fff0f0;color:var(--danger);border:1px solid rgba(239,68,68,0.12)}
+    .pill.off{background:#fff9eb;color:var(--accent-1);color:var(--accent-2);border:1px solid rgba(255,138,0,0.12)}
+
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;align-items:center}
+    .data-table{margin-top:18px;width:100%;border-collapse:collapse}
+    .data-table th{padding:10px;text-align:left;color:var(--text);border-bottom:1px solid rgba(0,0,0,0.04)}
+    .data-table td{padding:10px;border-bottom:1px dashed rgba(0,0,0,0.02);color:var(--text)}
+
+    .toast{
+      position:fixed;right:20px;bottom:20px;background:#1f2937;color:#fff;padding:10px 14px;border-radius:8px;font-size:13px;display:none;
+      box-shadow:0 8px 30px rgba(16,24,40,0.12);
+    }
+
+    @media (max-width:760px){
+      .header{flex-direction:column;align-items:flex-start}.logo{width:48px;height:48px}
+      .tiempos-grid{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="logo" aria-hidden="true"><span>PL2</span></div>
+      <div>
+        <h1>Semáforo PL2</h1>
+      </div>
+    </div>
+
+    <div class="card" role="region" aria-label="Panel semáforo PL2">
+
+      <!-- TIEMPO ESTADOS (sin encabezados individuales) -->
+      <div class="section" id="tiempos-section">
+        <h2>Tiempos</h2>
+        <div class="hint">A continuación cada tiempo (valor actual). Debajo puedes introducir un nuevo entero y pulsar <strong>Actualizar</strong> para cambiarlo.</div>
+
+        <div class="tiempos-grid" id="tiemposGrid">
+          <!-- 4 tarjetas de tiempo -->
+          <div class="time-card" data-index="1">
+            <div class="time-label">Tiempo 1</div>
+            <div class="time-value" id="val-1">10000</div>
+
+            <div class="time-update" style="margin-top:8px">
+              <input type="number" id="new-1" placeholder="Nuevo entero (ms)" aria-label="Nuevo tiempo 1">
+              <!-- Botón ahora DEBAJO del input -->
+              <button class="btn secondary" data-index="1" onclick="updateTime(1)">Actualizar</button>
+            </div>
+          </div>
+
+          <div class="time-card" data-index="2">
+            <div class="time-label">Tiempo 2</div>
+            <div class="time-value" id="val-2">10000</div>
+
+            <div class="time-update" style="margin-top:8px">
+              <input type="number" id="new-2" placeholder="Nuevo entero (ms)" aria-label="Nuevo tiempo 2">
+              <button class="btn secondary" data-index="2" onclick="updateTime(2)">Actualizar</button>
+            </div>
+          </div>
+
+          <div class="time-card" data-index="3">
+            <div class="time-label">Tiempo 3</div>
+            <div class="time-value" id="val-3">10000</div>
+
+            <div class="time-update" style="margin-top:8px">
+              <input type="number" id="new-3" placeholder="Nuevo entero (ms)" aria-label="Nuevo tiempo 3">
+              <button class="btn secondary" data-index="3" onclick="updateTime(3)">Actualizar</button>
+            </div>
+          </div>
+
+          <div class="time-card" data-index="4">
+            <div class="time-label">Tiempo 4</div>
+            <div class="time-value" id="val-4">10000</div>
+
+            <div class="time-update" style="margin-top:8px">
+              <input type="number" id="new-4" placeholder="Nuevo entero (ms)" aria-label="Nuevo tiempo 4">
+              <button class="btn secondary" data-index="4" onclick="updateTime(4)">Actualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ESPERA -->
+      <div class="section" style="margin-top:18px">
+        <h2>Espera</h2>
+        <div class="controls" role="group" aria-label="Controles de espera">
+          <div id="espera" class="wait-circle wait-red" title="Estado de espera" aria-live="polite" aria-atomic="true"></div>
+
+          <div style="display:flex;flex-direction:column">
+            <div style="display:flex;gap:8px;align-items:center">
+              <button id="toggleEspera" class="btn" type="button" aria-pressed="false">Cambiar color</button>
+            </div>
+            <div class="hint" style="margin-top:8px">El círculo indica el estado de espera (rojo = detener, verde = listo).</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMERGENCIA -->
+      <div class="section" style="margin-top:18px">
+        <h2>Emergencia</h2>
+        <div class="controls emergencia" role="group" aria-label="Controles de emergencia">
+          <div id="emerg" class="pill off" aria-live="polite">off</div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button id="toggleEmerg" class="btn" type="button">Alternar on/off</button>
+          </div>
+        </div>
+        <div class="hint">Modo emergencia muestra un recuadro con <strong>on / off</strong>. Puedes sincronizar con el servidor si lo necesitas.</div>
+      </div>
+
+      <!-- ACCIONES (mantenidas) -->
+      <div class="actions" style="margin-top:18px">
+        <button id="triggerTL" class="btn" type="button">Pulsar botón semáforo (Trigger)</button>
+
+        <div style="display:flex;gap:8px;align-items:center">
+          <label for="newValue" class="hint" style="margin-right:6px">New value</label>
+          <input id="newValue" type="number" inputmode="numeric" style="width:140px;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.04);background:#fff;color:var(--text)" placeholder="ej. 23">
+          <button id="sendValue" class="btn" type="button">Send</button>
+        </div>
+      </div>
+
+      <!-- TABLA DATOS -->
+      <table class="data-table" aria-label="Datos servidor">
+        <thead>
+          <tr><th scope="col">Date</th><th scope="col">SixSeveeeen</th></tr>
+        </thead>
+        <tbody id="dataTable">
+          <!-- datos serán insertados por loadData() -->
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // Estado local de tiempos (iniciales)
+    const tiempos = {
+      1: 10000,
+      2: 10000,
+      3: 10000,
+      4: 10000
+    };
+
+    // Mostrar toast
+    function showToast(msg, ms = 2200) {
+      const $t = $('#toast');
+      $t.stop(true, true).text(msg).fadeIn(120).css('display','inline-block');
+      clearTimeout($t.data('timeoutId'));
+      const id = setTimeout(()=> $t.fadeOut(200), ms);
+      $t.data('timeoutId', id);
+    }
+
+    // Actualiza la vista del tiempo en la tarjeta
+    function refreshTimeView(index) {
+      $('#val-' + index).text(tiempos[index]);
+    }
+
+    // updateTime — se llama al pulsar "Actualizar" en cada tarjeta
+    function updateTime(index) {
+      const input = $('#new-' + index);
+      const raw = input.val();
+      if (raw === '') {
+        showToast('Introduce un valor entero para el tiempo ' + index, 2000);
+        return;
+      }
+      const n = Number(raw);
+      if (!Number.isInteger(n) || n < 0) {
+        showToast('El valor debe ser un entero no negativo', 2000);
+        return;
+      }
+
+      // actualizar estado local
+      tiempos[index] = n;
+      refreshTimeView(index);
+
+      // limpiar campo
+      input.val('');
+
+      // feedback
+      showToast('Tiempo ' + index + ' actualizado a ' + n);
+
+      // opcional: aquí podrías enviar al servidor el nuevo valor con AJAX
+      // $.post('/Ubicua/SetTiming', { index: index, value: n });
+    }
+
+    // Interactividad UI
+    $(function(){
+      // Inicializar vistas
+      refreshTimeView(1); refreshTimeView(2); refreshTimeView(3); refreshTimeView(4);
+
+      // Espera
+      $('#toggleEspera').on('click', function(){
+        const $e = $('#espera');
+        if ($e.hasClass('wait-red')) { $e.removeClass('wait-red').addClass('wait-green'); }
+        else { $e.removeClass('wait-green').addClass('wait-red'); }
+      });
+
+      // Emergencia
+      $('#toggleEmerg').on('click', function(){
+        const $p = $('#emerg');
+        if ($p.hasClass('off')) { $p.removeClass('off').addClass('on').text('on'); }
+        else { $p.removeClass('on').addClass('off').text('off'); }
+      });
+
+      // Acciones (AJAX) — mantengo endpoints pero no obligatorios
+      $('#triggerTL').on('click', function(){
+        const $btn = $(this);
+        disableButton($btn);
+        triggerTL().always(function(){ enableButton($btn); });
+      });
+
+      $('#sendValue').on('click', function(){
+        const $btn = $(this);
+        const val = $('#newValue').val();
+        if (val === '' || isNaN(Number(val))) {
+          showToast('Introduce un número válido', 1800);
+          return;
+        }
+        disableButton($btn);
+        insertData().always(function(){ enableButton($btn); });
+      });
+
+      // Cargar tabla de datos
+      loadData();
+    });
+
+    function disableButton($btn){ $btn.prop('disabled', true); }
+    function enableButton($btn){ $btn.prop('disabled', false); }
+
+    // --- AJAX functions (mantengo tus endpoints) ---
+    function loadData(){
+      $.ajax({
+        url: '/Ubicua/GetData',
+        type: 'GET',
+        dataType: 'json',
+        success: function(response){
+          $('#dataTable').empty();
+          if(!response || !response.length) {
+            $('#dataTable').append('<tr><td colspan="2" style="color:var(--muted)">Sin datos</td></tr>');
+            return;
+          }
+          var rows = '';
+          $.each(response, function(i,v){
+            var date = v.date !== undefined ? v.date : '';
+            var value = v.value !== undefined ? v.value : '';
+            rows += '<tr><td>'+escapeHtml(date)+'</td><td>'+escapeHtml(String(value))+' C</td></tr>';
+          });
+          $('#dataTable').append(rows);
+        },
+        error: function(){
+          console.warn('No fue posible cargar /Ubicua/GetData');
+          $('#dataTable').empty().append('<tr><td colspan="2" style="color:var(--muted)">Error cargando datos</td></tr>');
+        }
+      });
+    }
+
+    function insertData(){
+      var value = $('#newValue').val();
+      return $.ajax({
+        url: '/Ubicua/SetData',
+        type: 'POST',
+        data: { value: value },
+        dataType: 'json'
+      }).done(function(response){
+        if(response && response.success) {
+          loadData();
+          showToast('Valor insertado correctamente');
+        } else {
+          showToast('Error al insertar', 3000);
+          console.warn('Insert failed', response);
+        }
+      }).fail(function(){
+        showToast('Error POST /Ubicua/SetData', 3000);
+        console.warn('Error POST /Ubicua/SetData');
+      });
+    }
+
+    function triggerTL(){
+      return $.ajax({
+        url: '/Ubicua/TriggerTL',
+        type: 'POST',
+        dataType: 'json'
+      }).done(function(res){
+        if(!res || !res.success) {
+          alert('Error al activar semáforo');
+        } else {
+          showToast('Trigger enviado');
+        }
+      }).fail(function(){
+        console.warn('Error POST /Ubicua/TriggerTL');
+        showToast('Error trigger', 2000);
+      });
+    }
+
+    // Escapa texto para la tabla
+    function escapeHtml(unsafe) {
+      return String(unsafe)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/\'/g, "&#039;");
+    }
+  </script>
+</body>
 </html>

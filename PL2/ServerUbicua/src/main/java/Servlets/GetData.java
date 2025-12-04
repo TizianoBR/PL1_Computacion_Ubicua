@@ -23,13 +23,11 @@ public class GetData extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Log.log.info("GetData servlet started");
         response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
             Log.log.info("Getting data from DB");
             ArrayList<Measurement> values = Logic.getDataFromDB();
-            Log.log.info("Data obtained from DB");
             String jsonMeasurements = new Gson().toJson(values);
             Log.log.info("Values=>" + jsonMeasurements);
             out.println(jsonMeasurements);

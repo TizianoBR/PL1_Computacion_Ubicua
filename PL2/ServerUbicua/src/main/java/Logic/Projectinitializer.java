@@ -34,7 +34,7 @@ public class Projectinitializer implements ServletContextListener {
         Log.log.info("-->Suscribe Topics<--");
         MQTTBroker broker = new MQTTBroker();
         suscriber = new MQTTSuscriber(broker);
-        suscriber.subscribeTopic("#");
+        suscriber.subscribeTopic("sensors/ST_1103");
         MQTTPublisher.publish(broker, "test", "Hello from Tomcat :)");
     }
 }

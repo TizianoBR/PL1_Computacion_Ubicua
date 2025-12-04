@@ -16,6 +16,7 @@ public class MQTTPublisher {
      * @param content
      */
     public static void publish(MQTTBroker broker, String topic, String content) {
+        Log.log.info("Preparing to publish");
         MemoryPersistence persistence = new MemoryPersistence();
         try {
             MqttClient sampleClient = new MqttClient(MQTTBroker.getBroker(), MQTTBroker.getPublisherClientId(), persistence);
@@ -23,11 +24,15 @@ public class MQTTPublisher {
             connOpts.setUserName(MQTTBroker.getUsername());
             connOpts.setPassword(MQTTBroker.getPassword().toCharArray());
             connOpts.setCleanSession(true);
+            // Attempt automatic reconnection if the connection drops
+            connOpts.setAutomaticReconnect(true);
             Log.logmqtt.info("Connecting to broker: " + MQTTBroker.getBroker());
             sampleClient.connect(connOpts);
             Log.logmqtt.info("Connected");
             MqttMessage message = new MqttMessage(content.getBytes());
             message.setQos(MQTTBroker.getQos());
+            // Retain the message so new subscribers receive the last published value
+            message.setRetained(true);
             sampleClient.publish(topic, message);
             Log.logmqtt.info("Message published");
             sampleClient.disconnect();

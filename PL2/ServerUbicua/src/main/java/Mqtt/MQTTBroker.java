@@ -3,7 +3,7 @@ package mqtt;
 public class MQTTBroker {
 
     private static int qos = 2;
-    private static final String broker = "tcp://mqtt:1883";
+    private static final String broker = "tcp://test.mosquitto.org:1883";
     private static final String clientId = "WheatherStationUAH";
     private static final String username = "";
     private static final String password = "";

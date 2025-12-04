@@ -11,29 +11,37 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+import logic.Log;
+import mqtt.MQTTPublisher;
+import mqtt.MQTTBroker;
+
 /**
  * Servlet implementation class GetData
  */
-@WebServlet("/GetData")
+@WebServlet("/TriggerTL")
 public class TriggerTL extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Log.log.info("GetData servlet started");
         response.setContentType("application/json;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        // Publish message and return a simple JSON result so the frontend can evaluate success
         try {
-            Log.log.info("Getting data from DB");
-            ArrayList<Measurement> values = Logic.getDataFromDB();
-            Log.log.info("Data obtained from DB");
-            String jsonMeasurements = new Gson().toJson(values);
-            Log.log.info("Values=>" + jsonMeasurements);
-            out.println(jsonMeasurements);
+            String msg = "{\"boton\": 1}";
+            Log.log.info("Ready to send " + msg);
+            MQTTPublisher.publish(new MQTTBroker(), "ST_1103", msg);
+            Log.log.info("msg sent");
+            response.setStatus(HttpServletResponse.SC_OK);
+            try (PrintWriter out = response.getWriter()) {
+                out.print("{\"success\":true}");
+                out.flush();
+            }
         } catch (Exception e) {
-            out.println("[]");  // mejor devolver JSON vacío para evitar error JS
-            Log.log.error("Exception: " + e);
-        } finally {
-            out.close();
+            Log.log.error("msg could not be sent", e);
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            try (PrintWriter out = response.getWriter()) {
+                out.print("{\"success\":false,\"error\":\"publish_failed\"}");
+                out.flush();
+            }
         }
     }
 

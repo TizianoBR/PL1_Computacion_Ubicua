@@ -7,4 +7,5 @@ mqtt\MQTTBroker.class
 logic\Log.class
 mqtt\MQTTSuscriber.class
 logic\Logic.class
+servlets\TriggerTL.class
 servlets\SetData.class

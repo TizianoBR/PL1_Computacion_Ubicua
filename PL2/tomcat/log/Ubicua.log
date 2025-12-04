@@ -81,3 +81,123 @@ java.sql.SQLException: Cannot load JDBC driver class 'org.postgresql.Driver'
 2025-12-04 01:11:19.264 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
 2025-12-04 01:11:19.265 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
 2025-12-04 01:11:20.501 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[]
+2025-12-04 08:12:17.637 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:34) log ### -->Suscribe Topics<--
+2025-12-04 08:15:57.330 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:34) log ### -->Suscribe Topics<--
+2025-12-04 08:16:12.124 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 08:16:12.127 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 08:16:12.227 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 08:16:12.511 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 1535270766, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:16:12.512 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 08:16:12.513 INFO  logic.Logic.getDataFromDB(Logic.java:23) log ### Database Connected
+2025-12-04 08:16:12.518 INFO  logic.Logic.getDataFromDB(Logic.java:26) log ### Query=>SELECT value, time FROM measurements ORDER BY time DESC
+2025-12-04 08:16:12.591 ERROR logic.Logic.getDataFromDB(Logic.java:37) log ### Error: org.postgresql.util.PSQLException: The column name DATE was not found in this ResultSet.
+2025-12-04 08:16:12.592 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 08:16:12.593 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 1535270766, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:16:12.596 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 08:16:12.597 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 08:16:14.627 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[]
+2025-12-04 08:23:56.193 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:34) log ### -->Suscribe Topics<--
+2025-12-04 08:24:49.279 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 08:24:49.282 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 08:24:49.504 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 08:24:49.715 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 1915563613, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:24:49.716 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 08:24:49.716 INFO  logic.Logic.getDataFromDB(Logic.java:23) log ### Database Connected
+2025-12-04 08:24:49.717 INFO  logic.Logic.getDataFromDB(Logic.java:26) log ### Query=>SELECT value, time FROM measurements ORDER BY time DESC
+2025-12-04 08:24:49.772 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 08:24:49.773 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 1915563613, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:24:49.774 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 08:24:49.774 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 08:24:52.105 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[{"value":200,"date":"Jun 1, 2024, 2:00:00 PM"},{"value":150,"date":"Jun 1, 2024, 1:00:00 PM"},{"value":100,"date":"Jun 1, 2024, 12:00:00 PM"}]
+2025-12-04 08:26:49.874 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 08:26:49.877 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 935736284, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:26:49.878 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 08:26:49.929 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 08:26:49.931 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 935736284, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:26:49.932 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 08:26:49.939 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 08:26:49.940 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 08:26:49.941 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 08:26:49.943 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 1055612896, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:26:49.944 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 08:26:49.945 INFO  logic.Logic.getDataFromDB(Logic.java:23) log ### Database Connected
+2025-12-04 08:26:49.945 INFO  logic.Logic.getDataFromDB(Logic.java:26) log ### Query=>SELECT value, time FROM measurements ORDER BY time DESC
+2025-12-04 08:26:49.947 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 08:26:49.949 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 1055612896, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:26:49.950 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 08:26:49.950 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 08:26:49.952 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[{"value":1,"date":"Dec 4, 2025, 8:26:49 AM"},{"value":200,"date":"Jun 1, 2024, 2:00:00 PM"},{"value":150,"date":"Jun 1, 2024, 1:00:00 PM"},{"value":100,"date":"Jun 1, 2024, 12:00:00 PM"}]
+2025-12-04 08:35:50.082 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 08:35:50.084 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 08:35:50.084 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 08:35:50.086 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 1338222954, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:35:50.087 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 08:35:50.088 INFO  logic.Logic.getDataFromDB(Logic.java:23) log ### Database Connected
+2025-12-04 08:35:50.088 INFO  logic.Logic.getDataFromDB(Logic.java:26) log ### Query=>SELECT value, time FROM measurements ORDER BY time DESC
+2025-12-04 08:35:50.090 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 08:35:50.091 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 1338222954, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:35:50.092 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 08:35:50.093 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 08:35:50.096 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[{"value":1,"date":"Dec 4, 2025, 8:26:49 AM"},{"value":200,"date":"Jun 1, 2024, 2:00:00 PM"},{"value":150,"date":"Jun 1, 2024, 1:00:00 PM"},{"value":100,"date":"Jun 1, 2024, 12:00:00 PM"}]
+2025-12-04 08:36:12.534 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 08:36:12.536 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 08:36:12.536 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 08:36:12.538 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 1485616523, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:36:12.539 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 08:36:12.540 INFO  logic.Logic.getDataFromDB(Logic.java:23) log ### Database Connected
+2025-12-04 08:36:12.540 INFO  logic.Logic.getDataFromDB(Logic.java:26) log ### Query=>SELECT value, time FROM measurements ORDER BY time DESC
+2025-12-04 08:36:12.542 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 08:36:12.543 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 1485616523, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:36:12.543 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 08:36:12.544 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 08:36:12.548 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[{"value":1,"date":"Dec 4, 2025, 8:26:49 AM"},{"value":200,"date":"Jun 1, 2024, 2:00:00 PM"},{"value":150,"date":"Jun 1, 2024, 1:00:00 PM"},{"value":100,"date":"Jun 1, 2024, 12:00:00 PM"}]
+2025-12-04 08:38:25.733 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:34) log ### -->Suscribe Topics<--
+2025-12-04 08:38:32.057 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 08:38:32.058 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 08:38:32.278 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 08:38:32.444 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 188508036, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:38:32.445 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 08:38:32.446 INFO  logic.Logic.getDataFromDB(Logic.java:23) log ### Database Connected
+2025-12-04 08:38:32.447 INFO  logic.Logic.getDataFromDB(Logic.java:26) log ### Query=>SELECT value, time FROM measurements ORDER BY time DESC
+2025-12-04 08:38:32.491 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 08:38:32.493 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 188508036, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:38:32.493 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 08:38:32.494 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 08:38:34.203 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 08:38:34.205 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 08:38:34.206 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 08:38:34.208 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 236043493, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:38:34.208 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 08:38:34.209 INFO  logic.Logic.getDataFromDB(Logic.java:23) log ### Database Connected
+2025-12-04 08:38:34.210 INFO  logic.Logic.getDataFromDB(Logic.java:26) log ### Query=>SELECT value, time FROM measurements ORDER BY time DESC
+2025-12-04 08:38:34.211 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 08:38:34.212 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 236043493, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:38:34.213 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 08:38:34.213 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 08:38:34.713 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[{"value":1,"date":"Dec 4, 2025, 8:26:49 AM"},{"value":200,"date":"Jun 1, 2024, 2:00:00 PM"},{"value":150,"date":"Jun 1, 2024, 1:00:00 PM"},{"value":100,"date":"Jun 1, 2024, 12:00:00 PM"}]
+2025-12-04 08:38:34.713 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[{"value":1,"date":"Dec 4, 2025, 8:26:49 AM"},{"value":200,"date":"Jun 1, 2024, 2:00:00 PM"},{"value":150,"date":"Jun 1, 2024, 1:00:00 PM"},{"value":100,"date":"Jun 1, 2024, 12:00:00 PM"}]
+2025-12-04 08:40:20.410 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 08:40:20.413 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 08:40:20.414 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 08:40:20.417 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 1169446191, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:40:20.419 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 08:40:20.420 INFO  logic.Logic.getDataFromDB(Logic.java:23) log ### Database Connected
+2025-12-04 08:40:20.421 INFO  logic.Logic.getDataFromDB(Logic.java:26) log ### Query=>SELECT value, time FROM measurements ORDER BY time DESC
+2025-12-04 08:40:20.423 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 08:40:20.424 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 1169446191, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:40:20.425 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 08:40:20.426 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 08:40:20.427 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[{"value":1,"date":"Dec 4, 2025, 8:26:49 AM"},{"value":200,"date":"Jun 1, 2024, 2:00:00 PM"},{"value":150,"date":"Jun 1, 2024, 1:00:00 PM"},{"value":100,"date":"Jun 1, 2024, 12:00:00 PM"}]
+2025-12-04 08:41:20.030 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:34) log ### -->Suscribe Topics<--
+2025-12-04 08:41:23.297 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 08:41:23.300 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 08:41:23.397 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 08:41:23.624 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 523060515, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:41:23.626 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 08:41:23.627 INFO  logic.Logic.getDataFromDB(Logic.java:23) log ### Database Connected
+2025-12-04 08:41:23.640 INFO  logic.Logic.getDataFromDB(Logic.java:26) log ### Query=>SELECT value, time FROM measurements ORDER BY time DESC
+2025-12-04 08:41:23.703 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 08:41:23.704 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 523060515, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 08:41:23.708 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 08:41:23.709 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 08:41:26.348 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[{"value":200,"date":"Jun 1, 2024, 2:00:00 PM"},{"value":150,"date":"Jun 1, 2024, 1:00:00 PM"},{"value":100,"date":"Jun 1, 2024, 12:00:00 PM"}]

@@ -97,11 +97,11 @@ public class ConectionDDBB {
 
     // Consulta correcta para obtener los datos (VALUE y DATE)
     public static PreparedStatement GetDataBD(Connection con) {
-        return getStatement(con, "SELECT VALUE, DATE FROM measurement ORDER BY DATE DESC");
+        return getStatement(con, "SELECT value, time FROM measurements ORDER BY time DESC");
     }
 
     // Insertando valores con campos explícitos
     public static PreparedStatement SetDataBD(Connection con) {
-        return getStatement(con, "INSERT INTO measurement (VALUE, DATE) VALUES (?, ?)");
+        return getStatement(con, "INSERT INTO measurements (value, time) VALUES (?, ?)");
     }
 }

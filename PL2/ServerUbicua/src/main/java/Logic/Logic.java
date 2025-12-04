@@ -28,8 +28,8 @@ public class Logic
 			while (rs.next())
 			{
 				Measurement measure = new Measurement();
-				measure.setValue(rs.getInt("VALUE"));
-				measure.setDate(rs.getTimestamp("DATE"));
+				measure.setValue(rs.getInt("value"));
+				measure.setDate(rs.getTimestamp("time"));
 				values.add(measure);
 			}	
 		} catch (SQLException e)

@@ -424,3 +424,4 @@ Caused by: java.net.ConnectException: Connection refused
 2025-12-04 08:53:45.120 INFO  mqtt.MQTTSuscriber.messageArrived(MQTTSuscriber.java:54) logmqtt ### health/check: test
 2025-12-04 08:54:00.222 INFO  mqtt.MQTTSuscriber.messageArrived(MQTTSuscriber.java:54) logmqtt ### health/check: test
 2025-12-04 08:54:15.312 INFO  mqtt.MQTTSuscriber.messageArrived(MQTTSuscriber.java:54) logmqtt ### health/check: test
+2025-12-04 08:54:30.414 INFO  mqtt.MQTTSuscriber.messageArrived(MQTTSuscriber.java:54) logmqtt ### health/check: test

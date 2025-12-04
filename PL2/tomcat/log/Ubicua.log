@@ -14,3 +14,70 @@
 2025-12-02 19:14:08.201 INFO  servlets.GetData.doGet(GetData.java:37) log ### --Set new value into the DB--
 2025-12-02 19:45:08.244 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:33) log ### -->Suscribe Topics<--
 2025-12-03 07:20:27.304 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:33) log ### -->Suscribe Topics<--
+2025-12-03 20:09:18.781 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:34) log ### -->Suscribe Topics<--
+2025-12-03 20:13:29.878 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:34) log ### -->Suscribe Topics<--
+2025-12-03 20:13:40.846 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-03 20:13:40.847 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-03 20:13:40.928 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-03 20:13:41.005 ERROR database.ConectionDDBB.obtainConnection(ConectionDDBB.java:41) log ### ERROR sql getting connection while trying: 0 = null
+java.sql.SQLException: Cannot load JDBC driver class 'org.postgresql.Driver'
+2025-12-03 20:13:41.006 ERROR logic.Logic.getDataFromDB(Logic.java:41) log ### Error: java.lang.NullPointerException: SQL connection is null
+2025-12-03 20:13:41.007 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-03 20:13:41.007 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-03 20:13:41.008 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-03 20:13:43.776 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[]
+2025-12-03 20:14:07.370 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-03 20:14:07.373 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-03 20:14:07.375 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-03 20:14:07.411 ERROR database.ConectionDDBB.obtainConnection(ConectionDDBB.java:41) log ### ERROR sql getting connection while trying: 0 = null
+java.sql.SQLException: Cannot load JDBC driver class 'org.postgresql.Driver'
+2025-12-03 20:14:07.412 ERROR logic.Logic.getDataFromDB(Logic.java:41) log ### Error: java.lang.NullPointerException: SQL connection is null
+2025-12-03 20:14:07.413 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-03 20:14:07.415 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-03 20:14:07.416 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-03 20:14:07.417 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[]
+2025-12-03 20:41:00.101 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-03 20:41:00.104 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-03 20:41:00.105 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-03 20:41:00.108 ERROR database.ConectionDDBB.obtainConnection(ConectionDDBB.java:41) log ### ERROR sql getting connection while trying: 0 = null
+java.sql.SQLException: Cannot load JDBC driver class 'org.postgresql.Driver'
+2025-12-03 20:41:00.108 ERROR logic.Logic.getDataFromDB(Logic.java:41) log ### Error: java.lang.NullPointerException: SQL connection is null
+2025-12-03 20:41:00.109 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-03 20:41:00.109 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-03 20:41:00.109 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-03 20:41:00.111 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[]
+2025-12-04 00:37:31.105 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 00:37:31.128 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 00:37:31.131 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 00:37:31.148 ERROR database.ConectionDDBB.obtainConnection(ConectionDDBB.java:41) log ### ERROR sql getting connection while trying: 0 = null
+java.sql.SQLException: Cannot load JDBC driver class 'org.postgresql.Driver'
+2025-12-04 00:37:31.150 ERROR logic.Logic.getDataFromDB(Logic.java:41) log ### Error: java.lang.NullPointerException: SQL connection is null
+2025-12-04 00:37:31.151 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 00:37:31.151 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 00:37:31.152 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 00:37:31.158 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[]
+2025-12-04 00:48:59.821 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 00:48:59.831 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 00:48:59.832 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 00:48:59.840 ERROR database.ConectionDDBB.obtainConnection(ConectionDDBB.java:41) log ### ERROR sql getting connection while trying: 0 = null
+java.sql.SQLException: Cannot load JDBC driver class 'org.postgresql.Driver'
+2025-12-04 00:48:59.841 ERROR logic.Logic.getDataFromDB(Logic.java:41) log ### Error: java.lang.NullPointerException: SQL connection is null
+2025-12-04 00:48:59.842 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 00:48:59.842 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 00:48:59.842 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 00:48:59.845 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[]
+2025-12-04 01:08:46.180 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:34) log ### -->Suscribe Topics<--
+2025-12-04 01:11:19.074 INFO  servlets.GetData.doGet(GetData.java:26) log ### GetData servlet started
+2025-12-04 01:11:19.076 INFO  servlets.GetData.doGet(GetData.java:30) log ### Getting data from DB
+2025-12-04 01:11:19.127 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:22) log ### Attempt 0 to connect to the database
+2025-12-04 01:11:19.251 DEBUG database.ConectionDDBB.obtainConnection(ConectionDDBB.java:33) log ### Connection creation. Bd connection identifier: 643560802, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 01:11:19.252 INFO  database.ConectionDDBB.obtainConnection(ConectionDDBB.java:36) log ### Connection obtained in the attempt: 0
+2025-12-04 01:11:19.252 INFO  logic.Logic.getDataFromDB(Logic.java:23) log ### Database Connected
+2025-12-04 01:11:19.256 INFO  logic.Logic.getDataFromDB(Logic.java:26) log ### Query=>SELECT VALUE, DATE FROM measurement ORDER BY DATE DESC
+2025-12-04 01:11:19.260 ERROR logic.Logic.getDataFromDB(Logic.java:37) log ### Error: org.postgresql.util.PSQLException: ERROR: relation "measurement" does not exist
+  Position: 25
+2025-12-04 01:11:19.261 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:72) log ### Closing the connection
+2025-12-04 01:11:19.262 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 643560802, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-04
+2025-12-04 01:11:19.264 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
+2025-12-04 01:11:19.265 INFO  servlets.GetData.doGet(GetData.java:32) log ### Data obtained from DB
+2025-12-04 01:11:20.501 INFO  servlets.GetData.doGet(GetData.java:34) log ### Values=>[]

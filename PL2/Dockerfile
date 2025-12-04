@@ -13,10 +13,12 @@ RUN apt-get update \
 
 # Copiamos el script de arranque que espera a la BBDD
 COPY start-tomcat.sh /usr/local/tomcat/bin/start-tomcat.sh
-RUN chmod +x /usr/local/tomcat/bin/start-tomcat.sh
+# Ensure script has Unix line endings and is executable
+RUN sed -i 's/\r$//' /usr/local/tomcat/bin/start-tomcat.sh \
+    && chmod +x /usr/local/tomcat/bin/start-tomcat.sh
 
 # Volvemos al usuario por defecto (opcional, Tomcat ya funcionaría como root en muchas imágenes)
 USER root
 
 # Por defecto el script espera a las variables DB_HOST/DB_PORT y luego arranca Tomcat
-ENTRYPOINT ["/usr/local/tomcat/bin/start-tomcat.sh"]
+ENTRYPOINT ["sh","/usr/local/tomcat/bin/start-tomcat.sh"]

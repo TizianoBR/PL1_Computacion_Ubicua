@@ -13,22 +13,6 @@
         </session-timeout>
     </session-config>
 
-    <servlet>
-        <servlet-name>GetData</servlet-name>
-        <servlet-class>servlets.GetData</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>GetData</servlet-name>
-        <url-pattern>/GetData</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>SetData</servlet-name>
-        <servlet-class>servlets.SetData</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>SetData</servlet-name>
-        <url-pattern>/SetData</url-pattern>
-    </servlet-mapping>
+    <!-- Servlet mappings are provided via annotations (@WebServlet) in the source code. -->
 
 </web-app>

@@ -238,3 +238,30 @@ Caused by: java.net.UnknownHostException: mqtt-broker
 	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74)
 	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724)
 	... 1 more
+
+2025-12-04 01:08:51.081 ERROR mqtt.MQTTSuscriber.subscribeTopic(MQTTSuscriber.java:43) logmqtt ### Error subscribing to topic: {}
+org.eclipse.paho.client.mqttv3.MqttException: MqttException
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:38)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:738)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.net.UnknownHostException: mqtt-broker
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:569)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284)
+	at java.base/java.net.Socket.connect(Socket.java:659)
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724)
+	... 1 more
+
+2025-12-04 01:08:51.222 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:26) logmqtt ### Connecting to broker: tcp://mqtt-broker:1883
+2025-12-04 01:08:51.224 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:37) logmqtt ### Error on publishing value: {}
+org.eclipse.paho.client.mqttv3.MqttException: MqttException
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:38)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:738)
+	at java.base/java.lang.Thread.run(Thread.java:1474)
+Caused by: java.net.UnknownHostException: mqtt-broker
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:569)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:284)
+	at java.base/java.net.Socket.connect(Socket.java:659)
+	at org.eclipse.paho.client.mqttv3.internal.TCPNetworkModule.start(TCPNetworkModule.java:74)
+	at org.eclipse.paho.client.mqttv3.internal.ClientComms$ConnectBG.run(ClientComms.java:724)
+	... 1 more

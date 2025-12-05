@@ -1,6 +1,18 @@
 void ConnectWiFi_STA(bool useStaticIP = false)
 {
    Serial.println("");
+   WiFi.setAutoReconnect(false);
+   WiFi.disconnect(true, true);  // borra credenciales + BSSID
+   delay(500);
+
+   esp_wifi_stop();
+   delay(300);
+
+   esp_wifi_deinit();
+   delay(300);
+
+   WiFi.mode(WIFI_OFF);
+   delay(500);
    WiFi.mode(WIFI_STA);
   //  WiFi.setCountry("ES");
    if(useStaticIP) WiFi.config(ip, gateway, subnet);
@@ -18,7 +30,13 @@ void ConnectWiFi_STA(bool useStaticIP = false)
    Serial.print("Redes encontradas: ");
    Serial.println(n);
    for (int i = 0; i < n; ++i) {
-     Serial.println(WiFi.SSID(i));
+     Serial.print(i + 1);
+     Serial.print(": ");
+     Serial.print(WiFi.SSID(i));
+     Serial.print("  Canal: ");
+     Serial.print(WiFi.channel(i));
+     Serial.print("  RSSI: ");
+     Serial.println(WiFi.RSSI(i));
    }
 
   //  while (WiFi.status() != WL_CONNECTED) 

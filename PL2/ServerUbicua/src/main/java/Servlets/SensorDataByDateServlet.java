@@ -85,7 +85,7 @@ public class SensorDataByDateServlet extends HttpServlet {
         LocalDateTime end = date.plusDays(1).atStartOfDay();
 
         String sql = "SELECT sensor_id, sensor_type, timestamp, data_json " +
-                     "FROM sensor_data " +
+                     "FROM traffic_light " +
                      "WHERE timestamp >= ? AND timestamp < ? " +
                      "ORDER BY timestamp ASC";
 

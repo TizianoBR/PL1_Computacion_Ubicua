@@ -554,3 +554,7 @@ java.sql.SQLException: Cannot load JDBC driver class 'org.postgresql.Driver'
 2025-12-05 20:47:16.408 DEBUG database.ConectionDDBB.closeConnection(ConectionDDBB.java:76) log ### Connection closed. Bd connection identifier: 91862173, URL=jdbc:postgresql://ubicuabbdd:5432/ubicuabbdd, PostgreSQL JDBC Driver obtained in 2025-12-05
 2025-12-05 20:47:16.408 INFO  database.ConectionDDBB.closeConnection(ConectionDDBB.java:79) log ### The connection has been closed
 2025-12-05 20:47:17.591 INFO  servlets.GetData.doGet(GetData.java:32) log ### Values=>[{"value":200,"date":"Jun 1, 2024, 2:00:00 PM"},{"value":150,"date":"Jun 1, 2024, 1:00:00 PM"},{"value":100,"date":"Jun 1, 2024, 12:00:00 PM"}]
+2025-12-05 21:15:36.847 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:34) log ### -->Suscribe Topics<--
+2025-12-05 21:15:38.556 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:19) log ### Preparing to publish
+2025-12-05 22:17:09.140 INFO  logic.Projectinitializer.contextInitialized(Projectinitializer.java:34) log ### -->Suscribe Topics<--
+2025-12-05 22:17:10.639 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:19) log ### Preparing to publish

@@ -15,6 +15,8 @@ void ConnectWiFi_STA(bool useStaticIP = false)
 
    Serial.println("Escaneando redes...");
    int n = WiFi.scanNetworks();
+   Serial.print("Redes encontradas: ");
+   Serial.println(n);
    for (int i = 0; i < n; ++i) {
      Serial.println(WiFi.SSID(i));
    }

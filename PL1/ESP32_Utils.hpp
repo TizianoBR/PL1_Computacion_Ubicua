@@ -1,11 +1,11 @@
 void ConnectWiFi_STA(bool useStaticIP = false)
 {
    Serial.println("");
-   WiFi.disconnect(true);
    WiFi.mode(WIFI_STA);
   //  WiFi.setCountry("ES");
    if(useStaticIP) WiFi.config(ip, gateway, subnet);
    WiFi.begin(ssid, password);
+   WiFi.disconnect(true);
    Serial.printf("SSID leído por ESP32 = '%s'\n", ssid);
    Serial.printf("PASS leído por ESP32 = '%s'\n", password);
    Serial.printf("Long SSID = %d\n", strlen(ssid));

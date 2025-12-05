@@ -29,6 +29,8 @@ import mqtt.MQTTPublisher;
 import mqtt.MQTTSuscriber;
 import mqtt.MQTTBroker;
 
+import logic.Log;
+
 @WebServlet("/GetDataByDate")
 public class SensorDataByDateServlet extends HttpServlet {
 
@@ -130,8 +132,19 @@ public class SensorDataByDateServlet extends HttpServlet {
             out.print(gson.toJson(results));
 
         } catch (SQLException e) {
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            out.print("{\"error\":\"Error consultando la BD\"}");
+            // Registrar la excepción
+            Log.log.error("Error consultando la BD", e);
+
+            // Si la excepción indica que la tabla no existe (Postgres SQLState 42P01),
+            // devolvemos un array vacío para no romper clientes. Para otros errores
+            // devolvemos 500 para no ocultar problemas graves.
+            String sqlState = e.getSQLState();
+            if ("42P01".equals(sqlState) || (sqlState == null && e.getMessage() != null && e.getMessage().toLowerCase().contains("relation"))) {
+                out.print("[]");
+            } else {
+                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                out.print("{\"error\":\"Error consultando la BD\"}");
+            }
         }
     }
 

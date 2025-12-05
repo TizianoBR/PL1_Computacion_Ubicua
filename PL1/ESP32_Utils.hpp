@@ -2,13 +2,38 @@ void ConnectWiFi_STA(bool useStaticIP = false)
 {
    Serial.println("");
    WiFi.mode(WIFI_STA);
-   WiFi.begin(ssid, password);
+  //  WiFi.setCountry("ES");
    if(useStaticIP) WiFi.config(ip, gateway, subnet);
-   while (WiFi.status() != WL_CONNECTED) 
-   { 
-     delay(100);  
-     Serial.print('.'); 
+   WiFi.begin(ssid, password);
+   Serial.printf("SSID leído por ESP32 = '%s'\n", ssid);
+   Serial.printf("PASS leído por ESP32 = '%s'\n", password);
+   Serial.printf("Long SSID = %d\n", strlen(ssid));
+   Serial.printf("Longitud pass = %d\n", strlen(password));
+
+   WiFi.disconnect(true);
+   delay(1000);
+
+   Serial.println("Escaneando redes...");
+   int n = WiFi.scanNetworks();
+   for (int i = 0; i < n; ++i) {
+     Serial.println(WiFi.SSID(i));
    }
+
+  //  while (WiFi.status() != WL_CONNECTED) 
+  //  { 
+  //    delay(100);  
+  //    Serial.print('.'); 
+  //  }
+
+   unsigned long startAttemptTime = millis();
+   while (WiFi.status() != WL_CONNECTED && 
+       millis() - startAttemptTime < 15000)      // 15 segundos
+   {
+     delay(100);
+     Serial.print('.');
+   }
+
+   Serial.println(WiFi.status());
  
    Serial.println("");
    Serial.print("Iniciado STA:\t");

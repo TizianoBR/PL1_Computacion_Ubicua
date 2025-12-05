@@ -1,6 +1,7 @@
 void ConnectWiFi_STA(bool useStaticIP = false)
 {
    Serial.println("");
+   WiFi.disconnect(true);
    WiFi.mode(WIFI_STA);
   //  WiFi.setCountry("ES");
    if(useStaticIP) WiFi.config(ip, gateway, subnet);
@@ -10,7 +11,6 @@ void ConnectWiFi_STA(bool useStaticIP = false)
    Serial.printf("Long SSID = %d\n", strlen(ssid));
    Serial.printf("Longitud pass = %d\n", strlen(password));
 
-   WiFi.disconnect(true);
    delay(1000);
 
    Serial.println("Escaneando redes...");
@@ -26,7 +26,7 @@ void ConnectWiFi_STA(bool useStaticIP = false)
   //  }
 
    unsigned long startAttemptTime = millis();
-   while (WiFi.status() != WL_CONNECTED && 
+   while (WiFi.waitForConnectResult() != WL_CONNECTED && 
        millis() - startAttemptTime < 15000)      // 15 segundos
    {
      delay(100);
